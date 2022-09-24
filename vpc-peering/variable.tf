@@ -1,14 +1,14 @@
-#variables for vpc 1 in us-east-2
+#variables for vpc 2 in us-west-2
 variable "vpcname" {
   type        = string
-  default     = "vpc1"
+  default     = "vpc2"
   description = "VPC for project mouse"
 }
 
 
 variable "vpccidr" {
   type    = string
-  default = "192.168.0.0/16"
+  default = "10.0.0.0/16"
 }
 
 variable "privatesubnetname" {
@@ -18,7 +18,7 @@ variable "privatesubnetname" {
 
 variable "privatesubnet" {
   type        = list(string)
-  default     = ["192.168.3.0/24"]
+  default     = ["10.0.3.0/24"]
   description = "private subnet for private/db instances"
 }
 
@@ -30,6 +30,6 @@ variable "publicsubnetname" {
 
 variable "publicsubnet" {
   type        = list(string)
-  default     = ["192.168.1.0/24", "192.168.2.0/24"]
+  default     = ["10.0.1.0/24", "10.0.2.0/24"]
   description = "public subnet"
 }
