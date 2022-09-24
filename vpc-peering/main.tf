@@ -9,8 +9,8 @@ terraform {
 
 resource "aws_vpc_peering_connection" "vpc1" {
   peer_owner_id = var.peer_owner_id
-  peer_vpc_id   = var.aws_vpc.vpc2.id
-  vpc_id        = var.aws_vpc.vpc1.id
+  peer_vpc_id   = var.aws_vpc2
+  vpc_id        = var.aws_vpc1
   peer_region   = "us-east-2"
 }
 
