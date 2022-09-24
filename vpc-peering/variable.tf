@@ -33,39 +33,3 @@ variable "publicsubnet" {
   default     = ["192.168.1.0/24", "192.168.2.0/24"]
   description = "public subnet"
 }
-
-#variables for vpc 2 in us-west-2
-variable "vpcname.uat" {
-  type        = string
-  default     = "vpc2"
-  description = "VPC for project mouse"
-}
-
-
-variable "vpccidr.uat" {
-  type    = string
-  default = "10.0.0.0/16"
-}
-
-variable "privatesubnetname.uat" {
-  type    = string
-  default = "private"
-}
-
-variable "privatesubnet.uat" {
-  type        = list(string)
-  default     = ["10.0.3.0/24"]
-  description = "private subnet for private/db instances"
-}
-
-variable "publicsubnetname.uat" {
-  type    = string
-  default = "public"
-}
-
-
-variable "publicsubnet.uat" {
-  type        = list(string)
-  default     = ["10.0.1.0/24", "10.0.2.0/24"]
-  description = "public subnet"
-}
