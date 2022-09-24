@@ -33,22 +33,22 @@ data "aws_availability_zones" "azs" {
 
 
 module "vpc" {
-  source = "terraform-aws-modules/vpc/aws.uat"
+  source = "terraform-aws-modules/vpc/aws"
 
-  name = var.vpcname
-  cidr = var.vpccidr
+  name = var.vpcname.uat
+  cidr = var.vpccidr.uat
 
   azs                   = slice(data.aws_availability_zones.azs.names, 0, 2)
-  private_subnets       = var.privatesubnet
-  public_subnets        = var.publicsubnet
+  private_subnets       = var.privatesubnet.uat
+  public_subnets        = var.publicsubnet.uat
   create_igw            = true
   enable_nat_gateway    = false
   enable_vpn_gateway    = false
-  private_subnet_suffix = var.privatesubnetname
-  public_subnet_suffix  = var.publicsubnetname
+  private_subnet_suffix = var.privatesubnetname.uat
+  public_subnet_suffix  = var.publicsubnetname.uat
   tags = {
     Terraform   = "true"
-    Environment = "dev"
+    Environment = "uat"
   }
 }
 
