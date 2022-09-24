@@ -1,4 +1,10 @@
-# Configure the AWS Provider
+# Configure the AWS Provider for vpc1
 provider "aws" {
   region = "us-east-2"
 }
+
+# Configure the AWS Provider for vpc2
+provider "aws" {
+  region = "us-west-2"
+}
+
