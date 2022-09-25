@@ -1,4 +1,3 @@
-// Required for tests
-output "vpc_peering_accept_status" {
-  value = module.single_account_single_region.vpc_peering_accept_status
+output "connection_id" {
+  value = aws_vpc_peering_connection.my_peer.id
 }
