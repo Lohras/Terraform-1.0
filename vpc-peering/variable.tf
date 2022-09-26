@@ -1,21 +1,31 @@
 variable "vpc_req_cidr" {
-    description = "requester CIRD block"
+    description = "requester CIDR block"
     type = string
-#     default = "10.0.0.0/16"  
 }
 variable "vpc_acc_cidr" {
-    description = "accepterter CIRD block"
-    type = string
-    # default = "172.31.0.0/16"  
+    description = "accepterter CIDR block"
+    type = string 
 }
 
 variable "req_subnet_cidr" {
     description = "requester CIDR block"
     type = string
-    # default = "10.0.1.0/24"  
 }
 variable "acc_subnet_cidr" {
     description = "accepterter CIDR block"
     type = string
-    # default = "172.31.1.0/24"  
+}
+
+variable "auto_accept" {
+    type = bool
+    default = true
+}
+variable "accepter_allow_remote_vpc_dns_resolution" {
+    type = bool
+    default = true
+}
+
+variable "requester_allow_remote_vpc_dns_resolution" {
+    type = bool
+    default = true
 }

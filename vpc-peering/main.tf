@@ -1,24 +1,33 @@
 resource "aws_vpc" "requester" {
   cidr_block = var.vpc_req_cidr
   enable_dns_hostnames = true
+
+  tags = {
+    Name = "Requester-VPC"
+  }
 }
 
 resource "aws_vpc" "accepter" {
   cidr_block = var.vpc_acc_cidr
   enable_dns_hostnames = true
+
+  tags = {
+    Name = "Accepter-VPC"
+  }
 }
 
-resource "aws_vpc_peering_connection" "my_peer" {
-  vpc_id = aws_vpc.requester.id
-  peer_vpc_id = aws_vpc.accepter.id
 
-  auto_accept = true
+resource "aws_vpc_peering_connection" "my_peer" {
+  vpc_id = var.aws_vpc.requester.id
+  peer_vpc_id = var.aws_vpc.accepter.id
+
+  auto_accept = var.auto_accept
   accepter {
-    allow_remote_vpc_dns_resolution = true
+    allow_remote_vpc_dns_resolution = var.accepter_allow_remote_vpc_dns_resolution
   }
 
   requester {
-    allow_remote_vpc_dns_resolution = true
+    allow_remote_vpc_dns_resolution = var.requester_allow_remote_vpc_dns_resolution
   }
 }
 
@@ -27,7 +36,7 @@ resource "aws_subnet" "requester" {
   cidr_block = var.req_subnet_cidr
 
   tags = {
-    Name = "requester"
+    Name = "Requester-subnet"
   }
 }
 
@@ -36,28 +45,12 @@ resource "aws_subnet" "accepter" {
   cidr_block = var.acc_subnet_cidr
 
   tags = {
-    Name = "accepter"
+    Name = "Accepter-subnet"
   }
 }
-# resource "aws_route_table" "requester" {
-#   vpc_id = aws_vpc.requester.id
-#   route {
-#     cidr_block = var.req_subnet_cidr
-#     vpc_peering_connection_id = aws_vpc_peering_connection.my_peer.id
-#   }
-# }
-# resource "aws_route_table" "accepter" {
-#   vpc_id = aws_vpc.accepter.id
-#   route {
-#     cidr_block = var.acc_subnet_cidr
-#     vpc_peering_connection_id = aws_vpc_peering_connection.my_peer.id
-#   }  
-# }
-
-
 
 # creating routes from req-vpc2 to acc-default
-resource "aws_route" "requester_main" {
+resource "aws_route" "requester" {
   route_table_id = aws_vpc.requester.main_route_table_id
   destination_cidr_block = var.acc_subnet_cidr
   vpc_peering_connection_id = aws_vpc_peering_connection.my_peer.id 
