@@ -11,17 +11,17 @@ resource "aws_vpc_peering_connection" "my_peer" {
 
   auto_accept = true
   
-  acceptor {
-    allow_remote_vpc_dns_solution = true
+  accepter {
+    allow_remote_vpc_dns_resolution = true
   }
 
-  requestor {
-    allow_remote_vpc_dns_solution = true
+  requester {
+    allow_remote_vpc_dns_resolution = true
   }
 }
 
 #creating routes from req-vpc2 to acc-default
-resource "aws_route" "requestor" {
+resource "aws_route" "requester" {
   route_table_id = "rtb-00ce6fb93d8eb8f43"
   destination_cidr_block = "10.0.0.0/16"
   vpc_peering_connection_id = aws_vpc_peering_connection.my_peer.id
