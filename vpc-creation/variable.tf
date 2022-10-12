@@ -1,8 +1,8 @@
 #variables for vpc 2 in us-west-2
 variable "vpcname" {
   type        = string
-  default     = "vpc2"
-  description = "VPC for project mouse"
+  default     = "vpc1"
+  description = "VPC for project VCT-peering"
 }
 
 
