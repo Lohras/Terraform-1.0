@@ -56,13 +56,12 @@ resource "aws_route_table" "accepter" {
 
 
 
-#creating routes from req-vpc2 to acc-default
-# resource "aws_route" "requester" {
-#   route_table_id = aws_route_table.requester.id
-#   destination_cidr_block = "172.31.0.0/16"
-#   vpc_peering_connection_id = aws_vpc_peering_connection.my_peer.id
-  
-# }
+# creating routes from req-vpc2 to acc-default
+resource "aws_route" "requester_main" {
+  route_table_id = data.aws_route_table.selected.id
+  destination_cidr_block = "172.31.0.0/16"
+  vpc_peering_connection_id = aws_vpc_peering_connection.my_peer.id 
+}
 
 # #Create routes from acc-default to req-vpc2
 
