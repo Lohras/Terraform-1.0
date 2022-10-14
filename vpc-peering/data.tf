@@ -24,4 +24,8 @@ data "aws_route_table" "requester" {
 
 data "aws_route_table" "accepter" {
   subnet_id = aws_subnet.accepter.id
+  filter {
+    name = "association.main"
+    values = data.aws_route_table.accepter.id
+  }
 }
