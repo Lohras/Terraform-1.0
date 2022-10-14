@@ -6,7 +6,7 @@ output "requester_id" {
   value = data.aws_vpc.requester.id
 }
 
-output "acceptor_id" {
+output "accepter_id" {
   value = data.aws_vpc.accepter.id
 }
 
