@@ -9,7 +9,7 @@ data "aws_subnet" "requester" {
   id = var.req_subnet_id
 }
 
-data "aws_subnet" "acceptor" {
+data "aws_subnet" "accepter" {
   id = var.acc_subnet_id
 }
 
