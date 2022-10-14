@@ -3,25 +3,25 @@ output "connection_id" {
 }
 
 output "requester_id" {
-  value = aws_vpc.requester.id
+  value = data.aws_vpc.requester.id
 }
 
 output "acceptor_id" {
-  value = aws_vpc.accepter.id
+  value = data.aws_vpc.accepter.id
 }
 
 output "requester_route_table" {
-  value =  aws_route_table.requester.id 
+  value =  data.aws_route_table.requester.id 
 }
 
 output "accepter_route_table" {
-  value = aws_route_table.accepter.id
+  value = data.aws_route_table.accepter.id
 }
 
 output "requester_subnet" {
-  value = aws_subnet.requester.id
+  value = data.aws_subnet.requester.id
 }
 
 output "accepter_subnet" {
-  value = aws_subnet.accepter.id
+  value = data.aws_subnet.accepter.id
 }
