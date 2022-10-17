@@ -18,10 +18,10 @@ output "accepter_subnet" {
   value = aws_subnet.accepter.id
 }
 output "requester_route_table" {
-  value =  data.aws_route_table.requester.id 
+  value = aws_route_table.requester.id 
 }
 
 output "accepter_route_table" {
-  value = data.aws_route_table.accepter.id
+  value = aws_route_table.accepter.id
 }
 
