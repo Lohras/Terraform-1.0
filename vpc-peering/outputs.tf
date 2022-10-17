@@ -17,11 +17,4 @@ output "requester_subnet" {
 output "accepter_subnet" {
   value = aws_subnet.accepter.id
 }
-output "requester_route_table" {
-  value = aws_route_table.requester.id 
-}
-
-output "accepter_route_table" {
-  value = aws_route_table.accepter.id
-}
 
