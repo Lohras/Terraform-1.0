@@ -1,10 +1,10 @@
 resource "aws_vpc" "requester" {
-  cidr_block = var.req_cidr
+  cidr_block = var.vpc_req_cidr
   enable_dns_hostnames = true
 }
 
 resource "aws_vpc" "accepter" {
-  cidr_block = var.acc_cidr
+  cidr_block = var.vpc_acc_cidr
   enable_dns_hostnames = true
 }
 
