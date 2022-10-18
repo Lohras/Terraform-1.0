@@ -19,5 +19,5 @@ output "accepter_route" {
   value = module.vpc-peering-single-region.aws_route.accepter.id
 }
 output "requester_route" {
-  value = module.vpc-peering-single-region.aws_route.requester
+  value = module.vpc-peering-single-region.aws_route.requester.id
 }
