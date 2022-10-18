@@ -1,15 +1,23 @@
-output "requester_vpc_cidr" {
-    value = module.requester_vpc.vpc_cidr_block
+output "requester_vpc" {
+    value = module.vpc-peering-single-region.aws_vpc.requester.id
 }
-output "accepter_vpc_cidr" {
-    value = module.accepter_vpc.vpc_cidr_block
+output "accepter_vpc" {
+    value = module.vpc-peering-single-region.aws_vpc.accepter.id
 }
 
 output "connection_id" {
-  value       = module.vpc_peering.connection_id
+  value       = module.vpc-peering-single-region.aws_vpc_peering_connection.my_peer.id
   description = "VPC peering connection ID"
 }
-output "accept_status" {
-  value       = module.vpc_peering.accept_status
-  description = "The status of the VPC peering connection request"
+output "requester_subnet" {
+  value = module.vpc-peering-single-region.aws_subnet.requester.id  
+}
+output "accepter_subnet" {
+  value = module.vpc-peering-single-region.aws_subnet.accepter.id  
+}
+output "accepter_route" {
+  value = module.vpc-peering-single-region.aws_route.accepter.id
+}
+output "requester_route" {
+  value = module.vpc-peering-single-region.aws_route.requester
 }
