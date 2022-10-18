@@ -1,7 +1,7 @@
 module "vpc-peering-single-region" {
-  source = "../modules-vpc"
-  vpc_req_cidr = "172.35.0.0/16"
-  vpc_acc_cidr = "20.0.0.0/16"
-  req_subnet_cidr = "172.35.1.0/24"
-  acc_subnet_cidr = "20.0.1.0/24"
+  source = "../../vpc-peering"
+  vpc_req_cidr = var.req_vpc_cidr
+  vpc_acc_cidr = var.acc_vpc_cidr
+  req_subnet_cidr = var.subnet_req
+  acc_subnet_cidr = var.subnet_acc
 }
