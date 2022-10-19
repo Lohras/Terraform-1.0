@@ -18,8 +18,8 @@ resource "aws_vpc" "accepter" {
 
 
 resource "aws_vpc_peering_connection" "my_peer" {
-  vpc_id = var.aws_vpc.requester.id
-  peer_vpc_id = var.aws_vpc.accepter.id
+  vpc_id = aws_vpc.requester.id
+  peer_vpc_id = aws_vpc.accepter.id
 
   auto_accept = var.auto_accept
   accepter {
