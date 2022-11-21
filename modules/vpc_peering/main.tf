@@ -11,6 +11,10 @@ resource "aws_vpc_peering_connection" "my_peer" {
   requester {
     allow_remote_vpc_dns_resolution = var.requester_allow_remote_vpc_dns_resolution
   }
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 
