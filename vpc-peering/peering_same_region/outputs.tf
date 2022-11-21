@@ -1,7 +1,7 @@
-output "from_module_acc" {
-  value = module.vpc-peering-single-region.data_vpc_acc
+output "peering_id" {
+  value = module.vpc-peering-single-region.peering_id
 }
 
-output "from_module_req" {
-  value = module.vpc-peering-single-region.data_vpc_req
+output "peering_status" {
+  value = module.vpc-peering-single-region.peering_status
 }
