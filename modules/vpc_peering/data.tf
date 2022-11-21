@@ -13,10 +13,10 @@ data "aws_vpc" "accepter" {
    id = var.accepter_vpc_id
 }
 
-data "aws_vpc_peering_connection" "req_id" {
-  vpc_id          = var.reqester_vpc_id
+# data "aws_vpc_peering_connection" "req_id" {
+#   vpc_id          = var.reqester_vpc_id
 
-  depends_on = [
-    aws_vpc_peering_connection.my_peer
-  ]
-}
+#   depends_on = [
+#     aws_vpc_peering_connection.my_peer
+#   ]
+# }
