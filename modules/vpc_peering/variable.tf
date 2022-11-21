@@ -9,7 +9,7 @@ variable "acc_cidr" {
 
 variable "auto_accept" {
     type = bool
-    default = false
+    default = true
 }
 variable "accepter_allow_remote_vpc_dns_resolution" {
     type = bool
