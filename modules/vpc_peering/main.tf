@@ -24,7 +24,7 @@ resource "aws_route" "requester" {
 # #Create routes from acc-default to req-vpc2
 
 resource "aws_route" "accepter" {
-  route_table_id = data.aws_route_tables.accepter.id
+  route_table_id = data.aws_route_tables.acceptor.id
   destination_cidr_block = var.req_cidr
   vpc_peering_connection_id = aws_vpc_peering_connection.my_peer.id
 }
