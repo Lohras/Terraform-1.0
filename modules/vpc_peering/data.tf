@@ -15,7 +15,6 @@ data "aws_vpc" "accepter" {
 
 data "aws_vpc_peering_connection" "req_id" {
   vpc_id          = var.reqester_vpc_id
-  status        = "pending-acceptance"
 
   depends_on = [
     aws_vpc_peering_connection.my_peer
