@@ -1,8 +1,3 @@
-data "aws_vpc" "other_region" {
-  id = var.other_region_vpc
-  provider = aws.peer
-}
-
 data "aws_route_tables" "requestor" {
   vpc_id = var.reqester_vpc_id
 }
