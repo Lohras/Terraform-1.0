@@ -13,3 +13,7 @@ output "peering_id" {
 output "peering_status" {
   value = aws_vpc_peering_connection.my_peer.accept_status
 }
+
+output "acc_vpc_id" {
+  value = data.aws_vpc.accepter.id
+}
