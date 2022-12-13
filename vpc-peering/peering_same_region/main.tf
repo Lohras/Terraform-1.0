@@ -6,25 +6,17 @@ module "vpc-peering-single-region" {
   accepter_vpc_id = var.accepter_vpc_id
 }
 
-# # creating routes from req-vpc2 to acc-default
-# resource "aws_route" "requester" {
-#   route_table_id = data.aws_route_tables.requestor.ids[0]
-#   destination_cidr_block = var.acc_cidr
-#   vpc_peering_connection_id = module.vpc-peering-single-region.peering_id
-# }
-
-# # #Create routes from acc-default to req-vpc2
-
-# resource "aws_route" "accepter" {
-#   route_table_id = data.aws_route_tables.acceptor.ids[0]  
-#   destination_cidr_block = var.req_cidr
-#   vpc_peering_connection_id = module.vpc-peering-single-region.peering_id
-# }
-
-output "requester" {
-  value = data.aws_route_tables.requestor
+# creating routes from req-vpc2 to acc-default
+resource "aws_route" "requester" {
+  route_table_id = data.aws_route_tables.requestor.ids[0]
+  destination_cidr_block = var.acc_cidr
+  vpc_peering_connection_id = module.vpc-peering-single-region.peering_id
 }
 
-output "accepter" {
-  value = data.aws_route_tables.acceptor
+# #Create routes from acc-default to req-vpc2
+
+resource "aws_route" "accepter" {
+  route_table_id = data.aws_route_tables.acceptor.ids[0]  
+  destination_cidr_block = var.req_cidr
+  vpc_peering_connection_id = module.vpc-peering-single-region.peering_id
 }
