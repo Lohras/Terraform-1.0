@@ -4,9 +4,10 @@ data "aws_vpc" "other_region" {
 }
 
 data "aws_route_tables" "requestor" {
+  provider = aws.peer    
   vpc_id = var.reqester_vpc_id
 }
 
 data "aws_route_tables" "acceptor" {
-  vpc_id = var.accepter_vpc_id
+  vpc_id = var.multi_accepter_vpc_id
 }
