@@ -7,7 +7,7 @@ output "peering_status" {
 }
 
 output "accepter_vpc_id" {
-  value = module.vpc-peering-single-region.acc_vpc_id
+  value = var.accepter_vpc_id
 }
 
 output "req_cidr" {
@@ -17,3 +17,9 @@ output "req_cidr" {
 output "reqester_vpc_id" {
   value = var.reqester_vpc_id
 }
+
+
+output "acc_cidr" {
+  value = var.acc_cidr
+}
+
