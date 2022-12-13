@@ -15,5 +15,5 @@ output "peering_status" {
 }
 
 output "acc_vpc_id" {
-  value = data.aws_vpc.accepter.id
+  value = var.accepter_vpc_id
 }
