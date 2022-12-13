@@ -1,5 +1,5 @@
-variable "multi_req_cidr" {}
-variable "multi_reqester_vpc_id" {}
+variable "multi_acc_cidr" {}
+variable "multi_accepter_vpc_id" {}
 
 variable "req_cidr" {}
 variable "acc_cidr" {}
