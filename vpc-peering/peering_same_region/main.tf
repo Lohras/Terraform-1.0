@@ -22,9 +22,9 @@ module "vpc-peering-single-region" {
 # }
 
 output "requester" {
-  value = data.aws_route_tables.requestor.ids[0]
+  value = data.aws_route_tables.requestor
 }
 
 output "accepter" {
-  value = data.aws_route_tables.acceptor.ids[0]
+  value = data.aws_route_tables.acceptor
 }
