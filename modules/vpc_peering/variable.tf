@@ -23,5 +23,5 @@ variable "requester_allow_remote_vpc_dns_resolution" {
 
 variable "reqester_vpc_id" {}
 variable "accepter_vpc_id" {}
-variable "req_route_table_id" {}
-variable "acc_route_table_id" {}
+# variable "req_route_table_id" {}
+# variable "acc_route_table_id" {}
